@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter_clean_architecture_app/app/constants.dart';
 import 'package:flutter_clean_architecture_app/core/error/exceptions.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/models/number_trivia_model.dart';
-import 'package:meta/meta.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class NumberTriviaLocalDataSource {
@@ -15,7 +14,7 @@ abstract class NumberTriviaLocalDataSource {
 class NumberTriviaLocalDataSourceImpl implements NumberTriviaLocalDataSource {
   final SharedPreferences sharedPreferences;
 
-  NumberTriviaLocalDataSourceImpl({@required this.sharedPreferences});
+  NumberTriviaLocalDataSourceImpl({required this.sharedPreferences});
 
   @override
   Future<void> cacheNumberTrivia(NumberTriviaModel triviaToCache) {

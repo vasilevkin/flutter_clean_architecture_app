@@ -1,16 +1,15 @@
-// @dart=2.9
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_clean_architecture_app/core/error/exceptions.dart';
 import 'package:flutter_clean_architecture_app/core/error/failures.dart';
 import 'package:flutter_clean_architecture_app/core/network/network_info.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/datasources/number_trivia_local_datasource.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/datasources/number_trivia_remote_datasource.dart';
+import 'package:flutter_clean_architecture_app/features/number_trivia/data/models/number_trivia_model.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/domain/repositories/number_trivia_repository.dart';
-import 'package:meta/meta.dart';
 
-typedef Future<NumberTrivia> _ConcreteOrRandomChooser();
+typedef Future<NumberTriviaModel> _ConcreteOrRandomChooser();
+// typedef Future<NumberTrivia> _ConcreteOrRandomChooser();
 
 class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   final NumberTriviaRemoteDataSource remoteDataSource;
@@ -18,9 +17,9 @@ class NumberTriviaRepositoryImpl implements NumberTriviaRepository {
   final NetworkInfo networkInfo;
 
   NumberTriviaRepositoryImpl({
-    @required this.remoteDataSource,
-    @required this.localDataSource,
-    @required this.networkInfo,
+    required this.remoteDataSource,
+    required this.localDataSource,
+    required this.networkInfo,
   });
 
   @override

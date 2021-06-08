@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 class MessageDisplay extends StatelessWidget {
   final String message;
 
-  MessageDisplay({@required this.message});
+  MessageDisplay({required this.message});
 
   @override
   Widget build(BuildContext context) {

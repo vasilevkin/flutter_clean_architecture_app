@@ -1,6 +1,4 @@
-// @dart=2.9
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture_app/app/constants.dart';
 import 'package:flutter_clean_architecture_app/core/error/failures.dart';
@@ -9,7 +7,6 @@ import 'package:flutter_clean_architecture_app/core/util/input_converter.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/domain/usecases/usecases.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/presentation/bloc/bloc.dart';
-import 'package:meta/meta.dart';
 
 class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
   final GetConcreteNumberTrivia getConcreteNumberTrivia;
@@ -17,9 +14,9 @@ class NumberTriviaBloc extends Bloc<NumberTriviaEvent, NumberTriviaState> {
   final InputConverter inputConverter;
 
   NumberTriviaBloc({
-    @required GetConcreteNumberTrivia concrete,
-    @required GetRandomNumberTrivia random,
-    @required this.inputConverter,
+    required GetConcreteNumberTrivia concrete,
+    required GetRandomNumberTrivia random,
+    required this.inputConverter,
   })  : assert(concrete != null),
         assert(random != null),
         assert(inputConverter != null),

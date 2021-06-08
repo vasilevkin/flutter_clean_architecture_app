@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:dartz/dartz.dart';
 import 'package:flutter_clean_architecture_app/core/error/failures.dart';
 

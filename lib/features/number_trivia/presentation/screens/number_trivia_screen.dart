@@ -35,7 +35,9 @@ class NumberTriviaScreen extends StatelessWidget {
                   } else if (state is Error) {
                     return MessageDisplay(message: state.message);
                   }
-                  return null;
+                  return MessageDisplay(
+                    message: Constants.DEFAULT_FAILURE_MESSAGE,
+                  );  
                 },
               ),
               SizedBox(height: 24),
