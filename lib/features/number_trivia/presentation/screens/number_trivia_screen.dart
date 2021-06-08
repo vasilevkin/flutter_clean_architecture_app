@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../domain/entities/number_trivia.dart';
-import '../widgets/loading.dart';
-import '../widgets/message_display.dart';
-import '../widgets/trivia_controls.dart';
-import '../widgets/trivia_display.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_clean_architecture_app/app/constants.dart';
+import 'package:flutter_clean_architecture_app/app/injection_container.dart';
+import 'package:flutter_clean_architecture_app/features/number_trivia/presentation/bloc/bloc.dart';
+import 'package:flutter_clean_architecture_app/features/number_trivia/presentation/widgets/widgets.dart';
 
 class NumberTriviaScreen extends StatelessWidget {
   @override
@@ -15,15 +14,36 @@ class NumberTriviaScreen extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Column(
-      children: [
-        Loading(),
-        MessageDisplay(
-          message: 'Message',
+    return BlocProvider<NumberTriviaBloc>(
+      create: (_) => sl<NumberTriviaBloc>(),
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            children: [
+              SizedBox(height: 10),
+              BlocBuilder<NumberTriviaBloc, NumberTriviaState>(
+                builder: (context, state) {
+                  if (state is Empty) {
+                    return MessageDisplay(
+                      message: Constants.start,
+                    );
+                  } else if (state is Loading) {
+                    return LoadingWidget();
+                  } else if (state is Loaded) {
+                    return TriviaDisplay(numberTrivia: state.trivia);
+                  } else if (state is Error) {
+                    return MessageDisplay(message: state.message);
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(height: 24),
+              TriviaControls(),
+            ],
+          ),
         ),
-        TriviaControls(),
-        TriviaDisplay(numberTrivia: NumberTrivia(text: 'text', number: 1)),
-      ],
+      ),
     );
   }
 }

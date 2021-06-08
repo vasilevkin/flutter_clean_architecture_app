@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture_app/app/constants.dart';
+import 'package:flutter_clean_architecture_app/features/number_trivia/presentation/bloc/bloc.dart';
 
 class TriviaControls extends StatefulWidget {
   @override
@@ -48,7 +50,16 @@ class _TriviaControlsState extends State<TriviaControls> {
     );
   }
 
-  void dispatchConcrete() {}
+  void dispatchConcrete() {
+    _controller.clear();
 
-  void dispatchRandom() {}
+    BlocProvider.of<NumberTriviaBloc>(context)
+        .add(GetTriviaForConcreteNumber(inputString));
+  }
+
+  void dispatchRandom() {
+    _controller.clear();
+
+    BlocProvider.of<NumberTriviaBloc>(context).add(GetTriviaForRandomNumber());
+  }
 }

@@ -5,7 +5,7 @@ import '../../domain/entities/number_trivia.dart';
 class TriviaDisplay extends StatelessWidget {
   final NumberTrivia numberTrivia;
 
-  TriviaDisplay({required this.numberTrivia});
+  TriviaDisplay({@required this.numberTrivia});
 
   @override
   Widget build(BuildContext context) {
