@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_clean_architecture_app/core/error/exceptions.dart';
-import 'package:flutter_clean_architecture_app/core/error/failures.dart';
-import 'package:flutter_clean_architecture_app/core/network/network_info.dart';
+import 'package:flutter_clean_architecture_app/core/data/network/network_info.dart';
+import '../../../../core/data/error/exceptions.dart';
+import '../../../../core/data/error/failures.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/datasources/number_trivia_local_datasource.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/datasources/number_trivia_remote_datasource.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/models/number_trivia_model.dart';

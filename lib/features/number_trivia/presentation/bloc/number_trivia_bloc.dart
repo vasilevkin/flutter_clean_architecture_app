@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_clean_architecture_app/app/constants.dart';
-import 'package:flutter_clean_architecture_app/core/error/failures.dart';
-import 'package:flutter_clean_architecture_app/core/usecases/usecase.dart';
-import 'package:flutter_clean_architecture_app/core/util/input_converter.dart';
+import '../../../../core/data/error/failures.dart';
+import '../../../../core/domain/usecases/usecase.dart';
+import '../../../../core/data/util/input_converter.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/domain/entities/number_trivia.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/domain/usecases/usecases.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/presentation/bloc/bloc.dart';

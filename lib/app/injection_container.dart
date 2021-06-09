@@ -1,6 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_clean_architecture_app/core/network/network_info.dart';
-import 'package:flutter_clean_architecture_app/core/util/input_converter.dart';
+import 'package:flutter_clean_architecture_app/core/data/network/network_info.dart';
+import '../core/data/util/input_converter.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/datasources/number_trivia_local_datasource.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/datasources/number_trivia_remote_datasource.dart';
 import 'package:flutter_clean_architecture_app/features/number_trivia/data/repositories/number_trivia_repository_impl.dart';
