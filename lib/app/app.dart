@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture_app/app/constants.dart';
-
-import '../features/number_trivia/presentation/screens/number_trivia_screen.dart';
+import 'package:flutter_clean_architecture_app/core/presentation/screens/home_screen.dart';
 
 class CleanArchitectureApp extends StatelessWidget {
   @override
@@ -11,7 +10,7 @@ class CleanArchitectureApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(Constants.appName),
         ),
-        body: NumberTriviaScreen(),
+        body: HomeScreen(),
       ),
     );
   }
