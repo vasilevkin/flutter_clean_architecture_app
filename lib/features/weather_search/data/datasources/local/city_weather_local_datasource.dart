@@ -9,6 +9,13 @@ abstract class CityWeatherLocalDataSource {
   Future<CityWeatherModel> getLastCityWeather();
 
   Future<void> cacheCityWeather(CityWeatherModel cityWeatherToCache);
+
+  Future<void> addCityWeatherToCache({
+    required String searchString,
+    required CityWeatherModel cityWeatherToCache,
+  });
+
+  Future<CityWeatherModel> getCityWeatherByName(String name);
 }
 
 class CityWeatherLocalDataSourceImpl implements CityWeatherLocalDataSource {
@@ -28,6 +35,30 @@ class CityWeatherLocalDataSourceImpl implements CityWeatherLocalDataSource {
   Future<CityWeatherModel> getLastCityWeather() {
     final jsonString =
         sharedPreferences.getString(Constants.CACHED_CITY_WEATHER);
+
+    if (jsonString != null) {
+      return Future.value(
+        CityWeatherModel.fromJson(json.decode(jsonString)),
+      );
+    } else {
+      throw CacheException();
+    }
+  }
+
+  @override
+  Future<void> addCityWeatherToCache({
+    required String searchString,
+    required CityWeatherModel cityWeatherToCache,
+  }) {
+    return sharedPreferences.setString(
+      searchString,
+      json.encode(cityWeatherToCache.toJson()),
+    );
+  }
+
+  @override
+  Future<CityWeatherModel> getCityWeatherByName(String name) {
+    final jsonString = sharedPreferences.getString(name);
 
     if (jsonString != null) {
       return Future.value(

@@ -24,9 +24,15 @@ class CityWeatherRepositoryImpl implements CityWeatherRepository {
   @override
   Future<Either<Failure, CityWeather>> getConcreteCityWeatherFor(
       String name) async {
-    return await _getCityWeather(() {
-      return remoteDataSource.getWeatherForCity(name);
-    });
+    try {
+      final cityWeather = await localDataSource.getCityWeatherByName(name);
+      return Right(cityWeather);
+    } on CacheException {
+      final cityWeather = await remoteDataSource.getWeatherForCity(name);
+      localDataSource.addCityWeatherToCache(
+          searchString: name, cityWeatherToCache: cityWeather);
+      return Right(cityWeather);
+    }
   }
 
   @override
