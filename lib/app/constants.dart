@@ -16,4 +16,19 @@ class Constants {
   static const String DEFAULT_FAILURE_MESSAGE = 'Unexpected error';
 
   static const CACHED_NUMBER_TRIVIA = 'CACHED_NUMBER_TRIVIA';
+
+  // Weather search
+  static const String cityInputHint = 'Enter a city name';
+  static const String randomCity = 'Get random city weather';
+  static const String randomCityName = 'London';
+
+  static const String CACHED_CITY_WEATHER = 'CACHED_CITY_WEATHER';
+
+  static const String weatherHost = 'https://www.metaweather.com/';
+  static const String weatherApi = '$weatherHost/api/location/';
+
+  static const String emptyString = '** EMPTY **';
+  static const int emptyInt = 999999999;
+  static const double emptyDouble = 1111111111.11;
+
 }
